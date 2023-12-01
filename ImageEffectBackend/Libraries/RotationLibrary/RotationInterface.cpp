@@ -55,7 +55,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_RotationInterface_applyRot
 
     // Call the function here
     // TODO
-
+    applyRotation(imageVector, static_cast<int>(value));
 
 
 

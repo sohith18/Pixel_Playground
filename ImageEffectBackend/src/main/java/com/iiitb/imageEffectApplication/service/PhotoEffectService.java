@@ -1,5 +1,8 @@
 package com.iiitb.imageEffectApplication.service;
 
+import com.iiitb.imageEffectApplication.EffectImplementation.Brightness;
+import com.iiitb.imageEffectApplication.EffectImplementation.Rotation;
+import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
 import libraryInterfaces.Pixel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +53,13 @@ public class PhotoEffectService {
 
             // ACTUAL WORK STARTS HERE
 
+            Brightness brightness = new Brightness();
+            brightness.setParameterValue(amount);
+
+
+
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage =  brightness.apply(inputImage,"file",loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -62,6 +70,8 @@ public class PhotoEffectService {
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (IllegalParameterException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -186,8 +196,11 @@ public class PhotoEffectService {
 
             // ACTUAL WORK STARTS HERE
 
+            Rotation rotation = new Rotation();
+            rotation.setParameterValue(value);
+
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = rotation.apply(inputImage, "file", loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -197,6 +210,8 @@ public class PhotoEffectService {
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (IllegalParameterException e) {
+            throw new RuntimeException(e);
         }
     }
 
