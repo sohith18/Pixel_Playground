@@ -1,7 +1,9 @@
 package com.iiitb.imageEffectApplication.service;
 
+import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
 import libraryInterfaces.Pixel;
+import com.iiitb.imageEffectApplication.effectImplementation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,9 @@ public class PhotoEffectService {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
+
+            System.out.println(hueAmount);
+            System.out.println(saturationAmount);
 
 
             // ACTUAL WORK STARTS HERE
@@ -183,20 +188,21 @@ public class PhotoEffectService {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
 
-
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
-
+            Rotation rotation = new Rotation();
+            rotation.setParameterValue(value);
+            Pixel[][] modifiedImage = rotation.apply(inputImage, "file", loggingService); // Replace this with actual modified image
             // ACTUAL WORK ENDS HERE
-
 
             return processingUtils.postProcessing(modifiedImage);
 
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (IllegalParameterException e) {
+            throw new RuntimeException(e);
         }
     }
 
