@@ -67,7 +67,6 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_BrightnessInterface_applyB
 
 
 
-
     jobjectArray resultArray = env->NewObjectArray(rows, pixelArrayClass, nullptr);
 
     for (jsize i = 0; i < rows; ++i) {
