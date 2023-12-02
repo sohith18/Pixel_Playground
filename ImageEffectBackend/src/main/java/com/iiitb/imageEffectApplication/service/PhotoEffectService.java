@@ -1,10 +1,11 @@
 package com.iiitb.imageEffectApplication.service;
 
-import com.iiitb.imageEffectApplication.EffectImplementation.Brightness;
-import com.iiitb.imageEffectApplication.EffectImplementation.Rotation;
+
+import com.iiitb.imageEffectApplication.EffectImplementation.*;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
-import libraryInterfaces.Pixel;
+//import libraryInterfaces.Pixel;
+import libraryInterfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,20 +27,23 @@ public class PhotoEffectService {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
 
-
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            HueSaturation hueSaturation = new HueSaturation();
+            hueSaturation.setParameter("Hue", hueAmount);
+            hueSaturation.setParameter("Saturation", saturationAmount);
+            Pixel[][] modifiedImage = hueSaturation.apply(inputImage, "file", loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
-
 
             return processingUtils.postProcessing(modifiedImage);
 
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (IllegalParameterException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -52,13 +56,9 @@ public class PhotoEffectService {
 
 
             // ACTUAL WORK STARTS HERE
-
+            // TODO
             Brightness brightness = new Brightness();
             brightness.setParameterValue(amount);
-
-
-
-            // TODO
             Pixel[][] modifiedImage =  brightness.apply(inputImage,"file",loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
@@ -131,9 +131,10 @@ public class PhotoEffectService {
 
 
             // ACTUAL WORK STARTS HERE
-
+            GaussianBlur gaussian_blur = new GaussianBlur();
+            gaussian_blur.setParameterValue(radius);
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = gaussian_blur.apply(inputImage,"file",loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -144,6 +145,8 @@ public class PhotoEffectService {
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (IllegalParameterException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -193,17 +196,14 @@ public class PhotoEffectService {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
 
-
             // ACTUAL WORK STARTS HERE
 
+            // TODO
             Rotation rotation = new Rotation();
             rotation.setParameterValue(value);
-
-            // TODO
             Pixel[][] modifiedImage = rotation.apply(inputImage, "file", loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
-
 
             return processingUtils.postProcessing(modifiedImage);
 
@@ -221,9 +221,10 @@ public class PhotoEffectService {
             String imageName = imageFile.getOriginalFilename();
 
             // ACTUAL WORK STARTS HERE
+            Sepia sepia = new Sepia();
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Pixel[][] modifiedImage = sepia.apply(inputImage,"file",loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -263,7 +264,8 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            DominantColour dominantColour = new DominantColour();
+            Pixel[][] modifiedImage = dominantColour.apply(inputImage, "file", loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
