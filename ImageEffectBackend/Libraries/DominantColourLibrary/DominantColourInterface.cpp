@@ -55,6 +55,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_DominantColourInterface_ap
 
     // Call the function here
     // TODO
+    findDominantColour(imageVector);
 
 
 

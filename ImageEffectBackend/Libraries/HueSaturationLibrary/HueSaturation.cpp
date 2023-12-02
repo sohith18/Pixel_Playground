@@ -87,7 +87,7 @@ void applyHueSaturation(vector< vector<Pixel> > &image, float saturationValue, f
 
            rgb_to_hsv(rgb, hsv);
 
-           hsv[0] = hueValue;
+           hsv[0] = hueValue*18/5;
            hsv[1] = saturationValue/100;
 
            hsv_to_rgb(hsv, rgb);

@@ -262,7 +262,8 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            DominantColour dominantColour = new DominantColour();
+            Pixel[][] modifiedImage = dominantColour.apply(inputImage, "file", loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
