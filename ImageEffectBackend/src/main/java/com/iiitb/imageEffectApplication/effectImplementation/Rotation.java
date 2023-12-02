@@ -1,9 +1,12 @@
-package com.iiitb.imageEffectApplication.EffectImplementation;
+package com.iiitb.imageEffectApplication.effectImplementation;
 
 import com.iiitb.imageEffectApplication.baseEffects.*;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.service.LoggingService;
 import libraryInterfaces.*;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Rotation implements SingleValueDiscreteEffect{
     private int parameterValue;
@@ -21,6 +24,7 @@ public class Rotation implements SingleValueDiscreteEffect{
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
         String[] parameters = {"0", "90", "180", "270"};
         String optionValues = "Angle: " + parameters[parameterValue];
+
         loggingService.addLog(fileName, "Rotation", optionValues);
         return RotationInterface.applyRotation(image, parameterValue);
     }

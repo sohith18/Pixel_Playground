@@ -5,6 +5,8 @@
 #include <cstdlib> 
 #include <cmath>
 #include "../Pixel.h"
+#define K 50
+#define N_DOM_COLOURS 10
 
 using namespace std;
 

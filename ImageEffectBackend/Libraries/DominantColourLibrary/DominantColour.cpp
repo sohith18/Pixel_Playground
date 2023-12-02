@@ -1,11 +1,11 @@
 #include "DominantColour.h"
 
-int k = 50;
-int n_dom_colours = 10;
+//int k = 50;
+//int N_DOM_COLOURS = 10;
 
 void bubble_sort(int output_arr[], vector < vector<Pixel> > &clusters)
 {
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i < K; i++)
     {
         for (int j = 0; j < i; j++)
         {
@@ -45,16 +45,16 @@ double distance(Pixel p1, Pixel p2)
     return d1+d2+d3;
 }
 
-bool change_clusters(Pixel arr[], vector< vector<Pixel> > &clusters, int k)
+bool change_clusters(Pixel arr[], vector< vector<Pixel> > &clusters)
 {
     bool change = false;
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i < K; i++)
     {
         for (int j = 0; j < clusters[i].size(); j++)
         {
             int m_index = 0;
             Pixel p = clusters[i][j];
-            for (int c = 1; c < k; c++)
+            for (int c = 1; c < K; c++)
             {
                 if (distance(arr[c], p) < distance(arr[m_index], p)) m_index = c;
             }
@@ -76,8 +76,8 @@ void findDominantColour(vector< vector<Pixel> > &image)
 {
     srand(20);
     vector< vector<Pixel> > clusters;
-    Pixel arr[k];
-    for (int i = 0; i < k; i++)
+    Pixel arr[K];
+    for (int i = 0; i < K; i++)
     {
         Pixel p = {.r = rand()%256, .g = rand()%256, .b = rand()%256};
         arr[i] = p;
@@ -91,7 +91,7 @@ void findDominantColour(vector< vector<Pixel> > &image)
         {
             int m_index = 0;
             Pixel p = image[i][j];
-            for (int c = 1; c < k; c++)
+            for (int c = 1; c < K; c++)
             {
                 if (distance(arr[c], p) < distance(arr[m_index], p)) m_index = c;
             }
@@ -103,7 +103,7 @@ void findDominantColour(vector< vector<Pixel> > &image)
     int run = 3;
     while (run--)
     {
-        for (int i = 0; i < k; i++)
+        for (int i = 0; i < K; i++)
         {
             long long int sum_r = 0;
             long long int sum_g = 0;
@@ -122,25 +122,25 @@ void findDominantColour(vector< vector<Pixel> > &image)
             arr[i].b = sum_b/num;
         }
 
-        bool change = change_clusters(arr, clusters, k);
+        bool change = change_clusters(arr, clusters);
 
         if (!change) break;
     }
 
-    int sorted_arr[k];
-    for (int i = 0; i < k; i++) sorted_arr[i] = i;
+    int sorted_arr[K];
+    for (int i = 0; i < K; i++) sorted_arr[i] = i;
 
     bubble_sort(sorted_arr, clusters);
 
-    Pixel display_colours[n_dom_colours];
-    for (int i = 0; i < n_dom_colours; i++) display_colours[i] = arr[sorted_arr[i]];
+    Pixel display_colours[N_DOM_COLOURS];
+    for (int i = 0; i < N_DOM_COLOURS; i++) display_colours[i] = arr[sorted_arr[i]];
 
-    sort(display_colours, display_colours+n_dom_colours, pixel_comparator);
+    sort(display_colours, display_colours+N_DOM_COLOURS, pixel_comparator);
 
     int breadth = image.size();
-    for (int c = 0; c < n_dom_colours; c++)
+    for (int c = 0; c < N_DOM_COLOURS; c++)
     {
-        for (int i = c*breadth/n_dom_colours; i < max((c+1)*breadth/n_dom_colours, breadth); i++)
+        for (int i = c*breadth/N_DOM_COLOURS; i < max((c+1)*breadth/N_DOM_COLOURS, breadth); i++)
         {
             for (int j = 0; j < image[i].size(); j++)
             {

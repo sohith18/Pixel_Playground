@@ -6,12 +6,16 @@ import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.service.LoggingService;
 import libraryInterfaces.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class HueSaturation implements ParameterizableEffect {
     private float hueValue;
     private float saturationValue;
     @Override
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
-        String optionValues = "Hue: " + hueValue + ",Saturation: " + saturationValue;
+        String optionValues = "Hue: " + hueValue + " Saturation: " + saturationValue;
+
         loggingService.addLog(fileName, "Hue-Saturation", optionValues);
         return HueSaturationInterface.applyHueSaturation(image, saturationValue, hueValue);
     }

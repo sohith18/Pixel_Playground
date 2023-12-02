@@ -1,11 +1,10 @@
 package com.iiitb.imageEffectApplication.service;
 
 
-import com.iiitb.imageEffectApplication.EffectImplementation.Brightness;
-import com.iiitb.imageEffectApplication.EffectImplementation.Rotation;
+import com.iiitb.imageEffectApplication.effectImplementation.Brightness;
+import com.iiitb.imageEffectApplication.effectImplementation.Rotation;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
-//import libraryInterfaces.Pixel;
 import libraryInterfaces.*;
 import com.iiitb.imageEffectApplication.effectImplementation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +34,7 @@ public class PhotoEffectService {
             HueSaturation hueSaturation = new HueSaturation();
             hueSaturation.setParameter("Hue", hueAmount);
             hueSaturation.setParameter("Saturation", saturationAmount);
-            Pixel[][] modifiedImage = hueSaturation.apply(inputImage, "file", loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = hueSaturation.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -61,7 +60,7 @@ public class PhotoEffectService {
             // TODO
             Brightness brightness = new Brightness();
             brightness.setParameterValue(amount);
-            Pixel[][] modifiedImage =  brightness.apply(inputImage,"file",loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage =  brightness.apply(inputImage,imageName,loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -200,7 +199,7 @@ public class PhotoEffectService {
             // TODO
             Rotation rotation = new Rotation();
             rotation.setParameterValue(value);
-            Pixel[][] modifiedImage = rotation.apply(inputImage, "file", loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = rotation.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -263,7 +262,7 @@ public class PhotoEffectService {
 
             // TODO
             DominantColour dominantColour = new DominantColour();
-            Pixel[][] modifiedImage = dominantColour.apply(inputImage, "file", loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = dominantColour.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
