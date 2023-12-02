@@ -46,7 +46,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_SepiaInterface_applySepia
 
 
 
-
+    applySepia(imageVector);
 
 
 
