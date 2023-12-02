@@ -1,6 +1,0 @@
-12-02-2023 18:41:42,sunrise_two_people.jpeg,Brightness,Brightness Value: 62.0
-12-02-2023 18:42:30,tree-736885_1280.jpg,Hue-Saturation,Hue: 39.0 Saturation: 77.0
-12-02-2023 18:42:49,buildings_greenery.jpeg,Rotation,Angle: 180
-12-02-2023 18:43:04,mountain_sunrise.jpeg,Dominant Colour,-
-12-02-2023 18:53:30,road-1072823_640.jpg,Brightness,Brightness Value: 48.0
-12-02-2023 18:53:47,mountain_sunrise.jpeg,Dominant Colour,-

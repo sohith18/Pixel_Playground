@@ -134,7 +134,9 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            GaussianBlur gaussian_blur = new GaussianBlur();
+            gaussian_blur.setParameterValue(radius);
+            Pixel[][] modifiedImage = gaussian_blur.apply(inputImage,imageName,loggingService);// Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -145,6 +147,8 @@ public class PhotoEffectService {
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (IllegalParameterException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -221,7 +225,8 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Sepia sepia = new Sepia();
+            Pixel[][] modifiedImage = sepia.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
