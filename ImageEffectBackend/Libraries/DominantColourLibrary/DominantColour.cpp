@@ -1,5 +1,41 @@
 #include "DominantColour.h"
 
+int k = 50;
+int n_dom_colours = 10;
+
+void bubble_sort(int output_arr[], vector < vector<Pixel> > &clusters)
+{
+    for (int i = 0; i < k; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (clusters[output_arr[i]].size() > clusters[output_arr[j]].size())
+            {
+                int temp = output_arr[i];
+                output_arr[i] = output_arr[j];
+                output_arr[j] = temp;
+            }
+        }
+    }
+}
+
+bool pixel_comparator(Pixel p1, Pixel p2)
+{
+    if (p1.r > p2.r) return true;
+    else if (p1.r < p2.r) return false;
+    else
+    {
+
+        if (p1.g > p2.g) return true;
+        else if (p1.g < p2.g) return false;
+        else
+        {
+            if (p1.b > p2.b) return true;
+            else return false;
+        }
+    }
+}
+
 double distance(Pixel p1, Pixel p2)
 {
     int d1 = (p1.r-p2.r)*(p1.r-p2.r);
@@ -38,7 +74,7 @@ bool change_clusters(Pixel arr[], vector< vector<Pixel> > &clusters, int k)
 
 void findDominantColour(vector< vector<Pixel> > &image)
 {
-    int k = 50;
+    srand(20);
     vector< vector<Pixel> > clusters;
     Pixel arr[k];
     for (int i = 0; i < k; i++)
@@ -91,20 +127,28 @@ void findDominantColour(vector< vector<Pixel> > &image)
         if (!change) break;
     }
 
-    int index = 0;
-    for (int i = 1; i < k; i++)
-    {
-        if (clusters[index].size() < clusters[i].size()) index = i;
-    }
+    int sorted_arr[k];
+    for (int i = 0; i < k; i++) sorted_arr[i] = i;
 
-    for (int i = 0; i < image.size(); i++)
+    bubble_sort(sorted_arr, clusters);
+
+    Pixel display_colours[n_dom_colours];
+    for (int i = 0; i < n_dom_colours; i++) display_colours[i] = arr[sorted_arr[i]];
+
+    sort(display_colours, display_colours+n_dom_colours, pixel_comparator);
+
+    int breadth = image.size();
+    for (int c = 0; c < n_dom_colours; c++)
     {
-        for (int j = 0; j < image[i].size(); j++)
+        for (int i = c*breadth/n_dom_colours; i < max((c+1)*breadth/n_dom_colours, breadth); i++)
         {
-            image[i][j].r = arr[index].r;;
-            image[i][j].g = arr[index].g;
-            image[i][j].b = arr[index].b;
+            for (int j = 0; j < image[i].size(); j++)
+            {
+                image[i][j].r = display_colours[c].r;;
+                image[i][j].g = display_colours[c].g;
+                image[i][j].b = display_colours[c].b;
 
+            }
         }
     }
 }
