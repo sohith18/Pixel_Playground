@@ -2,6 +2,8 @@ package com.iiitb.imageEffectApplication.service;
 
 
 import com.iiitb.imageEffectApplication.EffectImplementation.*;
+import com.iiitb.imageEffectApplication.effectImplementation.Brightness;
+import com.iiitb.imageEffectApplication.effectImplementation.DominantColour;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
 //import libraryInterfaces.Pixel;
@@ -33,7 +35,7 @@ public class PhotoEffectService {
             HueSaturation hueSaturation = new HueSaturation();
             hueSaturation.setParameter("Hue", hueAmount);
             hueSaturation.setParameter("Saturation", saturationAmount);
-            Pixel[][] modifiedImage = hueSaturation.apply(inputImage, "file", loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = hueSaturation.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -59,7 +61,7 @@ public class PhotoEffectService {
             // TODO
             Brightness brightness = new Brightness();
             brightness.setParameterValue(amount);
-            Pixel[][] modifiedImage =  brightness.apply(inputImage,"file",loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage =  brightness.apply(inputImage,imageName,loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -134,7 +136,7 @@ public class PhotoEffectService {
             GaussianBlur gaussian_blur = new GaussianBlur();
             gaussian_blur.setParameterValue(radius);
             // TODO
-            Pixel[][] modifiedImage = gaussian_blur.apply(inputImage,"file",loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = gaussian_blur.apply(inputImage,imageName,loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -201,7 +203,7 @@ public class PhotoEffectService {
             // TODO
             Rotation rotation = new Rotation();
             rotation.setParameterValue(value);
-            Pixel[][] modifiedImage = rotation.apply(inputImage, "file", loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = rotation.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -224,7 +226,7 @@ public class PhotoEffectService {
             Sepia sepia = new Sepia();
 
             // TODO
-            Pixel[][] modifiedImage = sepia.apply(inputImage,"file",loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = sepia.apply(inputImage,imageName,loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -265,7 +267,7 @@ public class PhotoEffectService {
 
             // TODO
             DominantColour dominantColour = new DominantColour();
-            Pixel[][] modifiedImage = dominantColour.apply(inputImage, "file", loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = dominantColour.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
