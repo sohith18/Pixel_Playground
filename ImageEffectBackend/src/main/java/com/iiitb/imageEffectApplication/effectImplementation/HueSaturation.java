@@ -1,13 +1,9 @@
 package com.iiitb.imageEffectApplication.effectImplementation;
 
 import com.iiitb.imageEffectApplication.baseEffects.ParameterizableEffect;
-import com.iiitb.imageEffectApplication.baseEffects.PhotoEffect;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.service.LoggingService;
 import libraryInterfaces.*;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class HueSaturation implements ParameterizableEffect {
     private float hueValue;

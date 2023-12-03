@@ -5,9 +5,6 @@ import com.iiitb.imageEffectApplication.service.LoggingService;
 import libraryInterfaces.DominantColourInterface;
 import libraryInterfaces.Pixel;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 public class DominantColour implements PhotoEffect {
     @Override
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
