@@ -110,16 +110,19 @@ void findDominantColour(vector< vector<Pixel> > &image)
             long long int sum_b = 0;
             long long int num = clusters[i].size();
 
-            for (int j = 0; j < num; j++)
+            if (num != 0)
             {
-                sum_r += clusters[i][j].r;
-                sum_g += clusters[i][j].g;
-                sum_b += clusters[i][j].b;
-            }
+                for (int j = 0; j < num; j++)
+                {
+                    sum_r += clusters[i][j].r;
+                    sum_g += clusters[i][j].g;
+                    sum_b += clusters[i][j].b;
+                }
 
-            arr[i].r = sum_r/num;
-            arr[i].g = sum_g/num;
-            arr[i].b = sum_b/num;
+                arr[i].r = sum_r/num;
+                arr[i].g = sum_g/num;
+                arr[i].b = sum_b/num;
+            }
         }
 
         bool change = change_clusters(arr, clusters);
