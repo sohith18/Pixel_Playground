@@ -12,21 +12,27 @@ double gaussian( double x, double mu, double sigma ) {
 
 void applyGaussianBlur(vector<vector<Pixel>>&image, float radius)
 {
-    radius=(int)radius%12;
     double sigma = radius/2;
 
     vector<vector<double>> kernel(int(2 * radius + 1), vector<double>(int(2 * radius + 1), 0));
     //vector<vector<double>> kernel(1+2*ceil(3*sigma), vector<double>(1+2*ceil(3*sigma), 0));
 
     double sum = 0;
+    int integer_r = int(radius);
 
-    for (int i = 0; i < kernel.size(); i++)
+    for (int i = -integer_r; i < integer_r; i++)
     {
-        for (int j = 0; j < kernel[i].size(); j++)
+        for (int j = -integer_r; j < integer_r; j++)
         {
-            double x = gaussian(i, radius, sigma) * gaussian(j, radius, sigma);
-            kernel[i][j] = x;
-            sum += x;
+            double exponentNumerator = double(-(i * i+ j * j));
+            double exponentDenominator = (2 * sigma * sigma);
+
+            double eExpression = exp( exponentNumerator / exponentDenominator);
+            double kernelValue = (eExpression / (2 * M_PI * sigma * sigma));
+
+                            // We add radius to the indices to prevent out of bound issues because x and y can be negative
+            kernel[i + integer_r][j + integer_r] = kernelValue;
+            sum += kernelValue;
         }
     }
 
@@ -38,25 +44,24 @@ void applyGaussianBlur(vector<vector<Pixel>>&image, float radius)
         }
     }
 
-    int height = image[0].size();
-    int width = image.size();
-    int kernel_center_row,kernel_center_column = radius;
+    int height = image.size();
+    int width = image[0].size();
 
-    int integer_r = int(radius);
 
-    vector<vector<Pixel>> blurred_img(width,vector<Pixel>(height));
 
-    for(int i=0;i<width;i++){
-        for(int j=0;j<height;j++){
-            int new_red =0;
-            int new_green = 0;
-            int new_blue = 0;
-            for(int ker_i= int(-1*radius);ker_i<=int(radius);ker_i++){ //columns
-                for(int ker_j=int(-1*radius);ker_j<=int(radius);ker_j++){
+    vector<vector<Pixel>> blurred_img(height,vector<Pixel>(width));
+
+    for(int i=0;i<height;i++){
+        for(int j=0;j<width;j++){
+            double new_red =0;
+            double new_green = 0;
+            double new_blue = 0;
+            for(int ker_i= -1*integer_r;ker_i<integer_r;ker_i++){ //columns
+                for(int ker_j=-1*integer_r;ker_j<integer_r;ker_j++){
                     int ker_box_row = i - ker_i;
                     int ker_box_col = j - ker_j;
 
-                    if(ker_box_col>=0 && ker_box_row>=0 && ker_box_row<width && ker_box_col<height){
+                    if(ker_box_col>=0 && ker_box_row>=0 && ker_box_row<height && ker_box_col<width){
                         new_red+= kernel[integer_r+ker_i][integer_r+ker_j]*image[ker_box_row][ker_box_col].r;
                         new_green+= kernel[integer_r+ker_i][integer_r+ker_j]*image[ker_box_row][ker_box_col].g;
                         new_blue+= kernel[integer_r+ker_i][integer_r+ker_j]*image[ker_box_row][ker_box_col].b;
