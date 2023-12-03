@@ -3,6 +3,7 @@
 #define N_DOM_COLOURS 10
 #define K 50
 #include<vector>
+#include<iostream>
 #include <algorithm>
 #include <cstdlib>
 #include <cmath>
