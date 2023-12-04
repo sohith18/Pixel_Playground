@@ -6,7 +6,7 @@ void applyBrightness(vector <vector<Pixel> >& image,float amount){
            for(int j=0;j<image[i].size();j++){
 
 
-                float new_amount = amount - 100;
+                float new_amount = 2*(amount - 100);
 
                 float new_r = image[i][j].r + new_amount;
                 float new_g = image[i][j].g + new_amount;

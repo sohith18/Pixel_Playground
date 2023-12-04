@@ -82,7 +82,9 @@ public class LoggingService {
                     String log = scanner.nextLine();
                     String[] fieldValues = log.split(",");
 
-                    if (fieldValues[2].equalsIgnoreCase(effectName)) {
+                    // fieldValues[2].equalsIgnoreCase(effectName)
+
+                    if (fieldValues[2].toLowerCase().startsWith(effectName.toLowerCase())) {
                         LogModel logObj = new LogModel(fieldValues[0], fieldValues[1], fieldValues[2], fieldValues[3]);
                         logsByEffect.add(logObj);
                     }
