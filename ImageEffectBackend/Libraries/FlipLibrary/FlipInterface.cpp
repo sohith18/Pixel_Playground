@@ -55,11 +55,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_FlipInterface_applyFlip
 
     // Call the function here
     // TODO
-
-
-
-
-
+     applyFlip(imageVector, static_cast<int>(horizontalFlipValue), static_cast<int>(verticalFlipValue));
 
 
 

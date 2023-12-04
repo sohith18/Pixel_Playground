@@ -55,7 +55,7 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_InvertInterface_applyInver
 
     // Call the function here
     // TODO
-
+    applyInvert(imageVector);
 
 
 

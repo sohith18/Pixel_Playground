@@ -46,25 +46,9 @@ JNIEXPORT jobjectArray JNICALL Java_libraryInterfaces_ContrastInterface_applyCon
 
 
 
-
-
-
-
-
-
-
     // Call the function here
     // TODO
-
-
-
-
-
-
-
-
-
-
+    applyContrast(imageVector, static_cast<float>(amount));
 
 
     jobjectArray resultArray = env->NewObjectArray(rows, pixelArrayClass, nullptr);

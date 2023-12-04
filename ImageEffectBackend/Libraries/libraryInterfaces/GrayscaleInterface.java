@@ -6,5 +6,5 @@ public class GrayscaleInterface {
         System.load(libraryPath);
     }
 
-    public static native Pixel[][] applyGrayscale(Pixel[][] image, float saturationValue, float hueValue);
+    public static native Pixel[][] applyGrayscale(Pixel[][] image);
 }

@@ -6,5 +6,5 @@ public class ContrastInterface {
         System.load(libraryPath);
     }
 
-    public static native Pixel[][] applyContrast(Pixel[][] image, float amount);
+    public static native Pixel[][] applyContrast(Pixel[][] image, float contrastFactor);
 }
