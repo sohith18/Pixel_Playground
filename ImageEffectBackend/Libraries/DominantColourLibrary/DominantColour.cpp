@@ -135,15 +135,23 @@ void findDominantColour(vector< vector<Pixel> > &image)
 
     bubble_sort(sorted_arr, clusters);
 
-    Pixel display_colours[N_DOM_COLOURS];
-    for (int i = 0; i < N_DOM_COLOURS; i++) display_colours[i] = arr[sorted_arr[i]];
+    int n_colors = 0;
+    for (int i = 0; i < N_DOM_COLOURS; i++)
+    {
+        if (clusters[sorted_arr[i]].size() > 0) n_colors++;
+    }
 
-    sort(display_colours, display_colours+N_DOM_COLOURS, pixel_comparator);
+    Pixel display_colours[n_colors];
+    for (int i = 0; i < n_colors; i++) display_colours[i] = arr[sorted_arr[i]];
+
+    sort(display_colours, display_colours+n_colors, pixel_comparator);
+
+
 
     int breadth = image.size();
-    for (int c = 0; c < N_DOM_COLOURS; c++)
+    for (int c = 0; c < n_colors; c++)
     {
-        for (int i = c*breadth/N_DOM_COLOURS; i < max((c+1)*breadth/N_DOM_COLOURS, breadth); i++)
+        for (int i = c*breadth/n_colors; i < max((c+1)*breadth/n_colors, breadth); i++)
         {
             for (int j = 0; j < image[i].size(); j++)
             {
