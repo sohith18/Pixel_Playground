@@ -1,6 +1,6 @@
 #include "DominantColour.h"
 
-
+// Bubble sort to sort colours from most dominant to least dominant
 void bubble_sort(int output_arr[], vector < vector<Pixel> > &clusters)
 {
     for (int i = 0; i < K; i++)
@@ -17,6 +17,7 @@ void bubble_sort(int output_arr[], vector < vector<Pixel> > &clusters)
     }
 }
 
+// Comparator to compare pixels
 bool pixel_comparator(Pixel p1, Pixel p2)
 {
     if (p1.r > p2.r) return true;
@@ -34,6 +35,7 @@ bool pixel_comparator(Pixel p1, Pixel p2)
     }
 }
 
+// Distance between two pixels
 double distance(Pixel p1, Pixel p2)
 {
     int d1 = (p1.r-p2.r)*(p1.r-p2.r);
@@ -43,6 +45,7 @@ double distance(Pixel p1, Pixel p2)
     return d1+d2+d3;
 }
 
+// Create new clusters from old clusters and returns true if clusters changed
 bool change_clusters(Pixel arr[], vector< vector<Pixel> > &clusters)
 {
     bool change = false;
@@ -75,6 +78,8 @@ void findDominantColour(vector< vector<Pixel> > &image)
     srand(20);
     vector< vector<Pixel> > clusters;
     Pixel arr[K];
+
+    // Pick random pixels to form means
     for (int i = 0; i < K; i++)
     {
         Pixel p = {.r = rand()%256, .g = rand()%256, .b = rand()%256};
@@ -83,6 +88,7 @@ void findDominantColour(vector< vector<Pixel> > &image)
         clusters.push_back(pixels);
     }
 
+    // Initialize clusters
     for (int i = 0; i < image.size(); i++)
     {
         for (int j = 0; j < image[i].size(); j++)
@@ -101,6 +107,7 @@ void findDominantColour(vector< vector<Pixel> > &image)
     int run = 3;
     while (run--)
     {
+    // Find mean of each clusters
         for (int i = 0; i < K; i++)
         {
             long long int sum_r = 0;
@@ -108,14 +115,14 @@ void findDominantColour(vector< vector<Pixel> > &image)
             long long int sum_b = 0;
             long long int num = clusters[i].size();
 
-            if(num!=0){
+            if (num != 0)
+            {
                 for (int j = 0; j < num; j++)
                 {
                     sum_r += clusters[i][j].r;
                     sum_g += clusters[i][j].g;
                     sum_b += clusters[i][j].b;
                 }
-
 
                 arr[i].r = sum_r/num;
                 arr[i].g = sum_g/num;
@@ -133,15 +140,22 @@ void findDominantColour(vector< vector<Pixel> > &image)
 
     bubble_sort(sorted_arr, clusters);
 
-    Pixel display_colours[N_DOM_COLOURS];
-    for (int i = 0; i < N_DOM_COLOURS; i++) display_colours[i] = arr[sorted_arr[i]];
-
-    sort(display_colours, display_colours+N_DOM_COLOURS, pixel_comparator);
-
-    int breadth = image.size();
-    for (int c = 0; c < N_DOM_COLOURS; c++)
+    int n_colors = 0;
+    for (int i = 0; i < N_DOM_COLOURS; i++)
     {
-        for (int i = c*breadth/N_DOM_COLOURS; i < max((c+1)*breadth/N_DOM_COLOURS, breadth); i++)
+        if (clusters[sorted_arr[i]].size() > 0) n_colors++;
+    }
+
+    Pixel display_colours[n_colors];
+    for (int i = 0; i < n_colors; i++) display_colours[i] = arr[sorted_arr[i]];
+
+    sort(display_colours, display_colours+n_colors, pixel_comparator);
+
+    // Change the image vector
+    int breadth = image.size();
+    for (int c = 0; c < n_colors; c++)
+    {
+        for (int i = c*breadth/n_colors; i < max((c+1)*breadth/n_colors, breadth); i++)
         {
             for (int j = 0; j < image[i].size(); j++)
             {

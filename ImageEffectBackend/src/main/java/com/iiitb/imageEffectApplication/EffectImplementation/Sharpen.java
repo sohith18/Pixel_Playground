@@ -3,27 +3,24 @@ package com.iiitb.imageEffectApplication.EffectImplementation;
 import com.iiitb.imageEffectApplication.baseEffects.SingleValueParameterizableEffect;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.service.LoggingService;
-import libraryInterfaces.BrightnessInterface;
+import libraryInterfaces.SharpenInterface;
 import libraryInterfaces.Pixel;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
-public class Brightness implements SingleValueParameterizableEffect{
+public class Sharpen implements SingleValueParameterizableEffect{
     private float parameterValue;
 
     @Override
     public void setParameterValue(float parameterValue) throws IllegalParameterException {
-        if(parameterValue>=0 || parameterValue<=200){
+        if(parameterValue>=0 || parameterValue<=100){
             this.parameterValue = parameterValue;
         }
-        else throw new IllegalParameterException("Brightness takes only values between 0 to 200");
+        else throw new IllegalParameterException("Sharpness takes only values between 0 to 100");
     }
 
     @Override
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
-        String optionValues = "Brightness Value: " + this.parameterValue;
-
-        loggingService.addLog(fileName,"Brightness", optionValues);
-        return BrightnessInterface.applyBrightness(image,this.parameterValue);
+        String optionValues = "Sharpen Value: " + this.parameterValue;
+        loggingService.addLog(fileName,"Sharpness", optionValues);
+        return SharpenInterface.applySharpen(image,this.parameterValue);
     }
 }

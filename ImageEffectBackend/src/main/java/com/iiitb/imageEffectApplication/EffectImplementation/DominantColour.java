@@ -1,4 +1,4 @@
-package com.iiitb.imageEffectApplication.effectImplementation;
+package com.iiitb.imageEffectApplication.EffectImplementation;
 
 import com.iiitb.imageEffectApplication.baseEffects.PhotoEffect;
 import com.iiitb.imageEffectApplication.service.LoggingService;

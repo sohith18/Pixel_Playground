@@ -1,4 +1,4 @@
-package com.iiitb.imageEffectApplication.effectImplementation;
+package com.iiitb.imageEffectApplication.EffectImplementation;
 
 import com.iiitb.imageEffectApplication.baseEffects.SingleValueParameterizableEffect;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
