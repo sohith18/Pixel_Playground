@@ -1,6 +1,6 @@
 #ifndef DOMINANT_COLOUR_H
 #define DOMINANT_COLOUR_H
-#define N_DOM_COLOURS 10
+#define N_DOM_COLOURS 1
 #define K 50
 #include<vector>
 #include<iostream>
