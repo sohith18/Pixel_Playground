@@ -6,6 +6,7 @@ import com.iiitb.imageEffectApplication.effectImplementation.DominantColour;
 import com.iiitb.imageEffectApplication.effectImplementation.Rotation;
 import com.iiitb.imageEffectApplication.EffectImplementation.Flip;
 import com.iiitb.imageEffectApplication.EffectImplementation.Contrast;
+import com.iiitb.imageEffectApplication.EffectImplementation.Sharpen;
 import com.iiitb.imageEffectApplication.EffectImplementation.Inversion;
 import com.iiitb.imageEffectApplication.EffectImplementation.Grayscale;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
@@ -256,8 +257,10 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
-
+            Sharpen sp = new Sharpen();
+            sp.setParameterValue(amount);
+            Pixel[][] modifiedImage =  sp.apply(inputImage,imageName,loggingService);
+             // Replace this with actual modified image
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);
@@ -265,6 +268,8 @@ public class PhotoEffectService {
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }catch (IllegalParameterException e) {
+            throw new RuntimeException(e);
         }
     }
 

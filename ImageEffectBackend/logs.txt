@@ -1,7 +1,0 @@
-12-04-2023 02:16:49,walp1.jpg,Brightness,Brightness Value: 138.0
-12-04-2023 02:18:52,walp1.jpg,Grayscale,Standard
-12-04-2023 02:21:05,walp1.jpg,Inversion,Standard
-12-04-2023 02:22:43,walp1.jpg,Flip,Vertical flip
-12-04-2023 02:23:13,walp1.jpg,Flip,Horizontal flip
-12-04-2023 02:23:22,walp1.jpg,Flip,Both horizontal and vertical flip 
-12-04-2023 02:23:31,walp1.jpg,Flip,No flip
