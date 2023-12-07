@@ -7,7 +7,7 @@ import libraryInterfaces.*;
 public class Grayscale implements PhotoEffect{
     @Override
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
-        loggingService.addLog(fileName, "Grayscale", "Standard");
+        loggingService.addLog(fileName, "Grayscale", "-");
         return GrayscaleInterface.applyGrayscale(image);
     }
 }

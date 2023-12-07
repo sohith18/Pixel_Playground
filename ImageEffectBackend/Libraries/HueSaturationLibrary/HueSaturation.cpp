@@ -1,5 +1,14 @@
 #include "HueSaturation.h"
 
+/*
+HSV to RGB :
+https://en.wikipedia.org/wiki/HSL_and_HSV#Color_conversion_formulae
+
+RGB to HSV:
+https://www.rapidtables.com/convert/color/rgb-to-hsv.html
+*/
+
+// Convert RGB values to HSV values
 void rgb_to_hsv(int rgb[], float hsv[])
 {
     float r1 = (float)rgb[0]/(float)255;
@@ -29,6 +38,7 @@ void rgb_to_hsv(int rgb[], float hsv[])
     hsv[2] = v;
 }
 
+// Convery HSV values back to RGB
 void hsv_to_rgb(float hsv[], int rgb[])
 {
     float h = hsv[0];
@@ -73,6 +83,7 @@ void hsv_to_rgb(float hsv[], int rgb[])
     rgb[2] = (b1+m)*255;
 }
 
+
 void applyHueSaturation(vector< vector<Pixel> > &image, float saturationValue, float hueValue) {
     for (int i = 0; i < image.size(); i++)
     {
@@ -87,6 +98,7 @@ void applyHueSaturation(vector< vector<Pixel> > &image, float saturationValue, f
 
            rgb_to_hsv(rgb, hsv);
 
+           // Change hue and saturation values
            hsv[0] = hueValue*18/5;
            hsv[1] = saturationValue/100;
 

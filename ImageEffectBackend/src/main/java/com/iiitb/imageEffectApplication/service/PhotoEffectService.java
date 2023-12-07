@@ -257,7 +257,9 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            Sharpen sp = new Sharpen();
+            sp.setParameterValue(amount);
+            Pixel[][] modifiedImage =  sp.apply(inputImage,imageName,loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -266,6 +268,8 @@ public class PhotoEffectService {
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (IllegalParameterException e) {
+            throw new RuntimeException(e);
         }
     }
 
