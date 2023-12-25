@@ -1,19 +1,21 @@
 #include "Brightness.h"
 
-
+//amount - 0 to 200
 void applyBrightness(vector<vector<Pixel>>& image,float amount){
-    float old_amount = 2*amount;
-    for(int i=0;i<image.size();i++){
+    float old_amount = 2*amount;                 //Just to increase the effect of brightness when user moves slider
+    for(int i=0;i<image.size();i++){             // Looping to get each pixel
            for(int j=0;j<image[i].size();j++){
 
-
+                // Middle point in slider gives original image
+                // Below midpoint of slider - decrease brightness
+                // Above midpoint of slider - increase brightness
                 float new_amount = old_amount - 200;
 
-                float new_r = image[i][j].r + new_amount;
+                float new_r = image[i][j].r + new_amount;  // Changing rgb accordingly
                 float new_g = image[i][j].g + new_amount;
                 float new_b = image[i][j].b + new_amount;
 
-                if(new_r>255) new_r = 255;
+                if(new_r>255) new_r = 255;      //Making sure that rgb lies b/w 0-255
                 if(new_b>255) new_b = 255;
                 if(new_g>255) new_g = 255;
 
