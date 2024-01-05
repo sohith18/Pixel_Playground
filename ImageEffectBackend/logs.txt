@@ -1,6 +1,1 @@
-12-25-2023 23:25:50,result_image (6).png,Brightness,Brightness Value: 41.0
-12-25-2023 23:26:00,result_image (6).png,Brightness,Brightness Value: 0.0
-12-25-2023 23:26:11,result_image (6).png,Brightness,Brightness Value: 200.0
-12-25-2023 23:28:59,WhatsApp Image 2023-12-03 at 12.36.20_050ec1da.jpg,Gaussian Blur,Gaussian Blur Value: 31.0
-12-25-2023 23:29:03,WhatsApp Image 2023-12-03 at 12.36.20_050ec1da.jpg,Gaussian Blur,Gaussian Blur Value: 0.0
-12-25-2023 23:29:15,WhatsApp Image 2023-12-03 at 12.36.20_050ec1da.jpg,Gaussian Blur,Gaussian Blur Value: 50.0
+01-05-2024 00:20:25,WhatsApp Image 2023-12-03 at 12.36.20_050ec1da.jpg,Sepia,-
