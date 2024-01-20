@@ -10,11 +10,11 @@ void applyFlip(vector< vector<Pixel> >& image, int hf, int vf) {
     vector< vector<Pixel> > image_copy(image);
     image.clear();
 
-    if (hf == 0 && vf == 1) {
+    if (hf == 0 && vf == 1) {//Traverse elements row-by-row and insert image pixel in reverse order
         for (int i = rows - 1; i >= 0; --i) {
             image.push_back(image_copy[i]);
         }
-    } else if (hf == 1 && vf == 0) {
+    } else if (hf == 1 && vf == 0) {///Traverse elements column-by-column and insert image pixel in reverse order
         for (int i = 0; i < rows; ++i) {
             vector<Pixel> row;
             for (int j = cols - 1; j >= 0; --j) {

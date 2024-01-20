@@ -1,1 +1,2 @@
-01-05-2024 00:20:25,WhatsApp Image 2023-12-03 at 12.36.20_050ec1da.jpg,Sepia,-
+01-20-2024 18:21:15,WhatsApp Image 2023-12-03 at 12.36.20_050ec1da.jpg,Brightness,Brightness Value: 100.0
+01-20-2024 18:21:16,WhatsApp Image 2023-12-03 at 12.36.20_050ec1da.jpg,Brightness,Brightness Value: 129.0

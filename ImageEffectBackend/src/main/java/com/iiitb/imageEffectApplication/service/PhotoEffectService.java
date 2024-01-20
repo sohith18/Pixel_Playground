@@ -2,7 +2,6 @@ package com.iiitb.imageEffectApplication.service;
 
 
 import com.iiitb.imageEffectApplication.EffectImplementation.Brightness;
-import com.iiitb.imageEffectApplication.EffectImplementation.Rotation;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
 import libraryInterfaces.*;

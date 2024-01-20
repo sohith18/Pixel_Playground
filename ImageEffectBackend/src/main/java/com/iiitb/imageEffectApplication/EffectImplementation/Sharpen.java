@@ -11,7 +11,7 @@ public class Sharpen implements SingleValueParameterizableEffect{
 
     @Override
     public void setParameterValue(float parameterValue) throws IllegalParameterException {
-        if(parameterValue>=0 || parameterValue<=100){
+        if(parameterValue>=0 && parameterValue<=100){
             this.parameterValue = parameterValue;
         }
         else throw new IllegalParameterException("Sharpness takes only values between 0 to 100");

@@ -16,9 +16,6 @@ void applySepia(vector< vector<Pixel> > &image){
             else image[i][j].g = new_green;
             if(new_blue>255) image[i][j].b =255;
             else image[i][j].b = new_blue;
-
-
         }
     }
-
 }
