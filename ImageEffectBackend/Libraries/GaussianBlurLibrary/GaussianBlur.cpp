@@ -1,11 +1,13 @@
 #include "GaussianBlur.h"
 
+// radius - 0 to 50
 void applyGaussianBlur(vector< vector<Pixel> >&image, float radius)
 {
      if(radius==0) return;  //edge case
 
      double sigma = radius/2;
 
+     //Calculating kernel matrix
      vector<double> kernel(int(2 * radius + 1),0);
 
      double sum = 0;
@@ -23,6 +25,7 @@ void applyGaussianBlur(vector< vector<Pixel> >&image, float radius)
          sum += kernelValue;
      }
 
+     // Normalising kernel matrix
      for (int i = 0; i < kernel.size(); i++)
      {
          kernel[i] /= sum;
@@ -35,6 +38,8 @@ void applyGaussianBlur(vector< vector<Pixel> >&image, float radius)
 
      vector< vector<Pixel> > blurred_img(height,vector<Pixel>(width));
 
+     // Convolution of each pixel of image with kernel
+     // Doing 1-D convolution along both x and y axis
      for(int i=0;i<height;i++){
          for(int j=0;j<width;j++){
              double new_red =0;
@@ -54,7 +59,7 @@ void applyGaussianBlur(vector< vector<Pixel> >&image, float radius)
 
              }
 
-
+               // To ensure that pixel values lies b/w 0 to 255
                if(new_red>255) new_red = 255;
                if(new_blue>255) new_blue = 255;
                if(new_green>255) new_green = 255;
@@ -92,6 +97,7 @@ void applyGaussianBlur(vector< vector<Pixel> >&image, float radius)
 
              }
 
+               // To ensure that pixel values lies b/w 0 to 255
                if(new_red>255) new_red = 255;
                if(new_blue>255) new_blue = 255;
                if(new_green>255) new_green = 255;

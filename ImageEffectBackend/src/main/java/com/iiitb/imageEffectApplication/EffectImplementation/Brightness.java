@@ -11,7 +11,7 @@ public class Brightness implements SingleValueParameterizableEffect{
 
     @Override
     public void setParameterValue(float parameterValue) throws IllegalParameterException {
-        if(parameterValue>=0 || parameterValue<=200){
+        if(parameterValue>=0 && parameterValue<=200){
             this.parameterValue = parameterValue;
         }
         else throw new IllegalParameterException("Brightness takes only values between 0 to 200");

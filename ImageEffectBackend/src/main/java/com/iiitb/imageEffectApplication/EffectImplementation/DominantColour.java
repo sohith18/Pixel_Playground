@@ -8,6 +8,7 @@ import libraryInterfaces.Pixel;
 public class DominantColour implements PhotoEffect {
     @Override
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService) {
+        // Add log
         loggingService.addLog(fileName, "Dominant Colour", "-");
         return DominantColourInterface.applyDominantColour(image);
     }

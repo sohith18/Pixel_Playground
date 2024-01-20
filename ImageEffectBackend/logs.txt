@@ -1,9 +1,60 @@
-12-07-2023 11:23:19,buildings_greenery.jpeg,Flip,Both horizontal and vertical flip 
-12-07-2023 11:23:34,buildings_greenery.jpeg,Flip,Vertical flip
-12-07-2023 11:23:42,buildings_greenery.jpeg,Flip,Both horizontal and vertical flip 
-12-07-2023 11:25:30,buildings_greenery.jpeg,Rotation,Angle: 180
-12-07-2023 11:25:35,buildings_greenery.jpeg,Rotation,Angle: 90
-12-07-2023 11:25:50,buildings_greenery.jpeg,Rotation,Angle: 270
-12-07-2023 12:01:40,buildings_greenery.jpeg,Sharpness,Sharpen Value: 76.0
-12-07-2023 12:01:49,buildings_greenery.jpeg,Sharpness,Sharpen Value: 55.0
-12-07-2023 12:01:55,buildings_greenery.jpeg,Sharpness,Sharpen Value: 46.0
+01-05-2024 19:10:41,buildings_greenery.jpeg,Hue-Saturation,Hue: 19.0 Saturation: 65.0
+01-05-2024 19:11:45,buildings_greenery.jpeg,Hue-Saturation,Hue: 55.0 Saturation: 77.0
+01-05-2024 19:11:50,buildings_greenery.jpeg,Hue-Saturation,Hue: 55.0 Saturation: 91.0
+01-05-2024 19:11:52,buildings_greenery.jpeg,Hue-Saturation,Hue: 55.0 Saturation: 38.0
+01-05-2024 19:11:55,buildings_greenery.jpeg,Hue-Saturation,Hue: 78.0 Saturation: 38.0
+01-05-2024 19:12:12,buildings_greenery.jpeg,Brightness,Brightness Value: 162.0
+01-05-2024 19:12:16,buildings_greenery.jpeg,Brightness,Brightness Value: 123.0
+01-05-2024 19:12:25,result_image (1).png,Contrast,Contrast Factor: 1.75
+01-05-2024 19:12:33,result_image (1).png,Flip,Horizontal flip
+01-05-2024 19:12:36,result_image (1).png,Flip,Both horizontal and vertical flip 
+01-05-2024 19:12:38,result_image (1).png,Flip,Vertical flip
+01-05-2024 19:12:40,result_image (1).png,Flip,No flip
+01-05-2024 19:12:47,result_image (1).png,Gaussian Blur,Gaussian Blur Radius: 10.0
+01-05-2024 19:12:54,result_image (1).png,Grayscale,-
+01-05-2024 19:13:00,result_image (1).png,Inversion,Standard
+01-05-2024 19:13:08,result_image (1).png,Rotation,Angle: 270
+01-05-2024 19:13:11,result_image (1).png,Rotation,Angle: 90
+01-05-2024 19:13:14,result_image (1).png,Rotation,Angle: 180
+01-05-2024 19:13:17,result_image (1).png,Rotation,Angle: 0
+01-05-2024 19:13:24,result_image (1).png,Sepia,-
+01-05-2024 19:13:31,result_image (1).png,Sharpness,Sharpen Value: 50.0
+01-05-2024 19:13:40,result_image (1).png,Dominant Colour,-
+01-05-2024 21:03:37,result_image (1).png,Hue-Saturation,Hue: 0.0 Saturation: 100.0
+01-05-2024 21:06:59,buildings_greenery.jpeg,Hue-Saturation,Hue: 25.0 Saturation: 81.0
+01-05-2024 21:07:04,buildings_greenery.jpeg,Hue-Saturation,Hue: 35.0 Saturation: 71.0
+01-05-2024 21:07:18,buildings_greenery.jpeg,Hue-Saturation,Hue: 47.0 Saturation: 61.0
+01-05-2024 21:07:23,buildings_greenery.jpeg,Hue-Saturation,Hue: 47.0 Saturation: 45.0
+01-05-2024 21:07:26,buildings_greenery.jpeg,Hue-Saturation,Hue: 64.0 Saturation: 45.0
+01-05-2024 21:07:35,buildings_greenery.jpeg,Hue-Saturation,Hue: 64.0 Saturation: 32.0
+01-05-2024 21:07:38,buildings_greenery.jpeg,Hue-Saturation,Hue: 83.0 Saturation: 32.0
+01-05-2024 21:07:46,result_image (1).png,Brightness,Brightness Value: 136.0
+01-05-2024 21:07:51,result_image (1).png,Brightness,Brightness Value: 65.0
+01-05-2024 21:07:53,result_image (1).png,Brightness,Brightness Value: 48.0
+01-05-2024 21:07:57,result_image (1).png,Brightness,Brightness Value: 110.0
+01-05-2024 21:08:16,buildings_greenery.jpeg,Contrast,Contrast Factor: 1.91
+01-05-2024 21:08:19,buildings_greenery.jpeg,Contrast,Contrast Factor: 2.1100001
+01-05-2024 21:08:22,buildings_greenery.jpeg,Contrast,Contrast Factor: 2.22
+01-05-2024 21:08:25,buildings_greenery.jpeg,Contrast,Contrast Factor: 0.89
+01-05-2024 21:08:29,buildings_greenery.jpeg,Contrast,Contrast Factor: 1.25
+01-05-2024 21:08:49,buildings_greenery.jpeg,Flip,Horizontal flip
+01-05-2024 21:08:54,buildings_greenery.jpeg,Flip,Vertical flip
+01-05-2024 21:08:57,buildings_greenery.jpeg,Flip,Both horizontal and vertical flip 
+01-05-2024 21:09:04,buildings_greenery.jpeg,Flip,No flip
+01-05-2024 21:09:16,result_image (1).png,Gaussian Blur,Gaussian Blur Radius: 10.0
+01-05-2024 21:09:21,result_image (1).png,Gaussian Blur,Gaussian Blur Radius: 16.0
+01-05-2024 21:09:25,result_image (1).png,Gaussian Blur,Gaussian Blur Radius: 21.0
+01-05-2024 21:09:29,result_image (1).png,Gaussian Blur,Gaussian Blur Radius: 28.0
+01-05-2024 21:09:49,result_image (1).png,Gaussian Blur,Gaussian Blur Radius: 32.0
+01-05-2024 21:10:08,mountain_sunrise.jpeg,Grayscale,-
+01-05-2024 21:10:26,buildings_greenery.jpeg,Inversion,Standard
+01-05-2024 21:10:46,buildings_greenery.jpeg,Rotation,Angle: 90
+01-05-2024 21:10:51,buildings_greenery.jpeg,Rotation,Angle: 180
+01-05-2024 21:10:57,buildings_greenery.jpeg,Rotation,Angle: 270
+01-05-2024 21:11:00,buildings_greenery.jpeg,Rotation,Angle: 0
+01-05-2024 21:11:12,result_image (1).png,Sepia,-
+01-05-2024 21:11:25,result_image (1).png,Sharpness,Sharpen Value: 66.0
+01-05-2024 21:11:30,result_image (1).png,Sharpness,Sharpen Value: 79.0
+01-05-2024 21:11:35,result_image (1).png,Sharpness,Sharpen Value: 92.0
+01-05-2024 21:11:40,result_image (1).png,Sharpness,Sharpen Value: 24.0
+01-05-2024 21:11:49,result_image (1).png,Dominant Colour,-

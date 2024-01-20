@@ -10,6 +10,7 @@ public class Rotation implements SingleValueDiscreteEffect{
 
     @Override
     public void setParameterValue(int parameterValue) throws IllegalParameterException {
+        // Check if rotation angle is in the permissible values
         if (parameterValue == 0 || parameterValue == 1 || parameterValue == 2 || parameterValue == 3)
         {
             this.parameterValue = parameterValue;
@@ -22,6 +23,7 @@ public class Rotation implements SingleValueDiscreteEffect{
         String[] parameters = {"0", "90", "180", "270"};
         String optionValues = "Angle: " + parameters[parameterValue];
 
+        // Add log
         loggingService.addLog(fileName, "Rotation", optionValues);
         return RotationInterface.applyRotation(image, parameterValue);
     }
